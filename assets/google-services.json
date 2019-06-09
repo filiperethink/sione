@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "425634833362",
+    "firebase_url": "https://billmeapp2019.firebaseio.com",
+    "project_id": "billmeapp2019",
+    "storage_bucket": "billmeapp2019.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425634833362:android:c287beca61313265",
+        "android_client_info": {
+          "package_name": "com.sione"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "425634833362-buu00c5imbspo3n77l6ifjne64uaerbk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9VDwQYRS4l0GzE7sailUcKJ5ou8-IEmw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "425634833362-buu00c5imbspo3n77l6ifjne64uaerbk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "425634833362-rs1cdu97nse2e0as142k6eg1lt6kvssi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.sione"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import SplashScreen from "react-native-splash-screen";
 import PropTypes from "prop-types";
 import { SafeAreaView, Text } from "react-native";
 
@@ -12,9 +13,20 @@ class Home extends Component {
 
   state = {};
 
+  componentDidMount = () => {
+    SplashScreen.hide();
+  };
+
   render() {
     return (
-      <SafeAreaView>
+      <SafeAreaView
+        style={{
+          flex: 1,
+          backgroundColor: "#f8b525",
+          alignItems: "center",
+          justifyContent: "center"
+        }}
+      >
         <Text>Home</Text>
       </SafeAreaView>
     );

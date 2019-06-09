@@ -3,7 +3,7 @@ import firebase from "react-native-firebase";
 import AsyncStorage from "@react-native-community/async-storage";
 import PropTypes from "prop-types";
 import { SafeAreaView, Text } from "react-native";
-
+import SplashScreen from "react-native-splash-screen";
 // Styles
 import { styles } from "./LoginScreenStyle";
 
@@ -14,6 +14,7 @@ class Login extends Component {
   state = {};
 
   componentDidMount = async () => {
+    SplashScreen.hide();
     try {
       const loginUser = {
         email: "filipe.prado@rethink.dev",
@@ -34,8 +35,15 @@ class Login extends Component {
 
   render() {
     return (
-      <SafeAreaView>
-        <Text>Login</Text>
+      <SafeAreaView
+        style={{
+          flex: 1,
+          backgroundColor: "#f8b525",
+          alignItems: "center",
+          justifyContent: "center"
+        }}
+      >
+        <Text>Faça Login</Text>
       </SafeAreaView>
     );
   }

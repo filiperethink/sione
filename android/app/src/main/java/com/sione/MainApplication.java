@@ -5,6 +5,9 @@ import android.app.Application;
 import com.facebook.react.ReactApplication;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import io.invertase.firebase.RNFirebasePackage;
+import io.invertase.firebase.auth.RNFirebaseAuthPackage; // <-- Add this line
+import io.invertase.firebase.database.RNFirebaseDatabasePackage;
+import io.invertase.firebase.storage.RNFirebaseStoragePackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactNativeHost;
@@ -25,13 +28,9 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-            new AsyncStoragePackage(),
-            new RNFirebasePackage(),
-            new SplashScreenReactPackage(),
-            new RNGestureHandlerPackage()
-      );
+      return Arrays.<ReactPackage>asList(new MainReactPackage(), new AsyncStoragePackage(), new RNFirebasePackage(),
+          new RNFirebaseAuthPackage(), new RNFirebaseDatabasePackage(), new RNFirebaseStoragePackage(),
+          new SplashScreenReactPackage(), new RNGestureHandlerPackage());
     }
 
     @Override
