@@ -1,3 +1,4 @@
+import React, { Component, Fragment } from "react";
 import {
   createStackNavigator,
   createSwitchNavigator,
@@ -7,29 +8,25 @@ import {
 // Modules
 import HomeScreen from "app_sione/modules/Home/screens/HomeScreen";
 import LoginScreen from "app_sione/modules/Login/screens/LoginScreen";
-import AuthScreen from "app_sione/modules/Auth/screens/AuthScreen";
+import Preload from "./src/modules/Preload";
 
 console.disableYellowBox = true;
 const AppStack = createStackNavigator({
-  Home: {
-    screen: HomeScreen
-  }
+  Home: HomeScreen
 });
 const AuthStack = createStackNavigator({
-  SignIn: {
-    screen: LoginScreen
-  }
+  SignIn: LoginScreen
 });
 
 export default createAppContainer(
   createSwitchNavigator(
     {
-      AuthLoading: AuthScreen,
+      Preload: Preload,
       App: AppStack,
       Auth: AuthStack
     },
     {
-      initialRouteName: "AuthLoading"
+      initialRouteName: "Preload"
     }
   )
 );

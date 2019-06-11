@@ -4,6 +4,8 @@ import AsyncStorage from "@react-native-community/async-storage";
 import PropTypes from "prop-types";
 import { SafeAreaView, Text, StatusBar } from "react-native";
 
+import Theme from "../../../theme";
+
 // Styles
 import { styles } from "./AuthScreenStyle";
 
@@ -15,31 +17,21 @@ class Auth extends Component {
   state = {};
 
   componentDidMount = async () => {
-    await SplashScreen.hide();
-    this._bootstrapAsync();
+    const { navigation } = this.props;
+    SplashScreen.hide();
+    Theme.initTheme();
+    navigation.navigate("Auth");
+    // await this._bootstrapAsync();
   };
 
-  _bootstrapAsync = async () => {
-    const { navigation } = this.props;
-    const userToken = await AsyncStorage.getItem("@tokenUser");
-    navigation.navigate(userToken ? "App" : "Auth");
-  };
+  // _bootstrapAsync = async () => {
+  //   const { navigation } = this.props;
+  //   const userToken = await AsyncStorage.getItem("@tokenUser");
+  //   navigation.navigate("Auth");
+  // };
 
   render() {
-    return (
-      <Fragment>
-        <SafeAreaView
-          style={{
-            flex: 1,
-            backgroundColor: "#f1f1f1",
-            alignItems: "center",
-            justifyContent: "center"
-          }}
-        >
-          <Text>Auth</Text>
-        </SafeAreaView>
-      </Fragment>
-    );
+    return <Fragment />;
   }
 }
 
