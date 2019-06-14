@@ -1,15 +1,13 @@
-import { Client } from "./client";
+import firebase from "./client";
 
-const signupApi = async data => {
-  console.log("api", data);
-  // const { firstName, lastName, email, password } = data;
-  const res = await Client.post("/users/signup", {
-    firstName: data.firstName,
-    lastName: data.lastName,
-    email: data.email,
-    password: data.password
-  });
+const loginApi = async (email, pass) => {
+  const res = await firebase.auth().signInWithEmailAndPassword(email, pass);
   return res;
 };
 
-export { signupApi };
+const getToken = async () => {
+  const res = await firebase.auth().currentUser.getIdTokenResult();
+  return res;
+};
+
+export { loginApi, getToken };

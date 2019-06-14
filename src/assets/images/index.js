@@ -12,7 +12,8 @@ const images = {
     icnUser: require("./icons/user.png"),
     icnPass: require("./icons/lock.png"),
     icnEmail: require("./icons/mail.png"),
-    icnPhone: require("./icons/phone.png")
+    icnPhone: require("./icons/phone.png"),
+    icnDivider: require("./icons/divider.png")
   }
   // logos: {
   //   logoWhite: require("./logo/white/SIONÉ.png"),

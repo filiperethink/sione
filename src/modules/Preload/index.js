@@ -13,9 +13,9 @@ class Preload extends Component {
   _bootStrap = async () => {
     const { navigation } = this.props;
     Theme.initTheme();
-    const userToken = await AsyncStorage.getItem("@tokenUser");
+    const userToken = await AsyncStorage.getItem("@sione/userToken");
     if (userToken) {
-      navigation.navigate("App", { name: "Filipe" });
+      navigation.navigate("App");
     } else {
       navigation.navigate("Auth");
     }
