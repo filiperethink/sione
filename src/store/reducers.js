@@ -1,6 +1,6 @@
-import { combineReducers } from "redux";
-import loginState from "../modules/Login/reducers/loginReducer";
+import { combineReducers } from 'redux';
+import userState from '~/store/reducers/users/reducer';
 
 export default combineReducers({
-  loginState
+  userState,
 });

@@ -1,15 +1,13 @@
-import firebase from "./client";
-firebase.database().goOnline();
+import firebase from './client';
 
-const db = firebase.database();
-
-const getUserById = async id => {
-  const eventref = db.ref("users");
-  const snapshot = await eventref.once("value");
-  const value = snapshot.val();
-  const res = Object.values(value);
-
-  return res;
+const getLoggedUser = async () => {
+  const user = await firebase.auth().currentUser;
+  const ref = await firebase
+    .firestore()
+    .collection('users')
+    .doc(user.uid);
+  const doc = await ref.get();
+  return { id: user.uid, ...doc.data() };
 };
 
-export { getUserById };
+export { getLoggedUser };

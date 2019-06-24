@@ -1,12 +1,9 @@
 import React, { Component, Fragment } from 'react';
 
-import SplashScreen from 'react-native-splash-screen';
-
 import PropTypes from 'prop-types';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import AsyncStorage from '@react-native-community/async-storage';
 
-import { Animated, Easing, Alert } from 'react-native';
+import { Animated, Easing } from 'react-native';
 
 import { connect } from 'react-redux';
 import { Form } from '../components/Form';
@@ -33,7 +30,7 @@ class Login extends Component {
 
   state = {};
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
     this.handleInitialAnimation();
   };
 
@@ -103,7 +100,7 @@ Login.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  isLoading: state.loginState.isLoading,
+  isLoading: state.userState.isLoading,
 });
 
 const mapDispatchToProps = dispatch => ({

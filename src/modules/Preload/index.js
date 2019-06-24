@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
-import SplashScreen from 'react-native-splash-screen';
-import Theme from '../../theme';
+// import SplashScreen from 'react-native-splash-screen';
+// import Theme from '../../theme';
 
 class Preload extends Component {
   componentDidMount = async () => {

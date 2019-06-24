@@ -9,6 +9,7 @@ import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.auth.RNFirebaseAuthPackage; // <-- Add this line
 import io.invertase.firebase.database.RNFirebaseDatabasePackage;
 import io.invertase.firebase.storage.RNFirebaseStoragePackage;
+import io.invertase.firebase.firestore.RNFirebaseFirestorePackage; // <-- Add this line
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactNativeHost;
@@ -31,7 +32,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(new MainReactPackage(),
             new SvgPackage(), new AsyncStoragePackage(), new RNFirebasePackage(),
-          new RNFirebaseAuthPackage(), new RNFirebaseDatabasePackage(), new RNFirebaseStoragePackage(),
+          new RNFirebaseAuthPackage(), new RNFirebaseDatabasePackage(), new RNFirebaseStoragePackage(), new RNFirebaseFirestorePackage(),
           new SplashScreenReactPackage(), new RNGestureHandlerPackage());
     }
 

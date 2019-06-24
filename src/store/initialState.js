@@ -1,13 +1,13 @@
 export default {
   localText: {},
-  auth: {
+  user: {
     isLoading: false,
     isAuthenticated: false,
     loggedUser: {},
     error: {
       status: false,
       message: null,
-      errorCode: null
-    }
-  }
+      errorCode: null,
+    },
+  },
 };

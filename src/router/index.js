@@ -4,11 +4,6 @@ import {
   createSwitchNavigator,
   createDrawerNavigator,
 } from 'react-navigation';
-import React, { Component } from 'react';
-import { Provider } from 'react-redux';
-
-// Store
-import store from '~/store/store';
 
 // Modules
 import HomeScreen from '~/modules/Home/screens/HomeScreen';
@@ -18,82 +13,53 @@ import Preload from '~/modules/Preload';
 import BillsScreen from '~/modules/Bills/screens/BillsScreen';
 import AddBillScreen from '~/modules/AddBills/screens/AddBillsScreen';
 import ChartsScreen from '~/modules/Charts/screens/ChartsScreen';
+import ReportScreen from '~/modules/Report/screens/ReportScreen';
 
-const AuthStack = createStackNavigator(
-  {
-    LoginScreen: { screen: LoginScreen },
-  },
-  {
-    headerMode: 'screen',
-    navigationOptions: {
-      header: { visible: false },
-    },
-  },
-);
-
-const Drawer = createDrawerNavigator({
-  BillsScreen: {
-    screen: BillsScreen,
-    navigationOptions: {
-      drawerLabel: 'BillsScreen',
-    },
-  },
-
-  AddBillScreen: {
-    screen: AddBillScreen,
-    navigationOptions: {
-      drawerLabel: 'AddBillScreen',
-    },
-  },
-
-  ChartsScreen: {
-    screen: ChartsScreen,
-    navigationOptions: {
-      drawerLabel: 'ChartsScreen',
-    },
-  },
+const DraweNav = createDrawerNavigator({
+  Home: HomeScreen,
+  Bills: BillsScreen,
+  Add: AddBillScreen,
+  Charts: ChartsScreen,
+  Report: ReportScreen,
 });
 
 const AppStack = createStackNavigator(
   {
-    HomeScreen: { screen: HomeScreen },
-    Drawer,
+    Home: DraweNav,
   },
   {
-    headerMode: 'screen',
-    navigationOptions: {
-      header: { visible: false },
-      gesturesEnabled: true,
-      gestureDirection: 'default',
+    header: null,
+    headerMode: 'none',
+  },
+);
+
+const PreloadStack = createStackNavigator(
+  {
+    Preload,
+  },
+  {
+    transparentCard: true,
+    headerMode: 'none',
+    header: null,
+    cardStyle: {
+      backgroundColor: '#857CBF',
     },
   },
 );
 
-export const AppContainer = createAppContainer(
+const AuthStack = createStackNavigator({
+  SignIn: LoginScreen,
+});
+
+export const Nav = createAppContainer(
   createSwitchNavigator(
     {
-      Preload,
-      AuthStack,
-      AppStack,
+      Preload: PreloadStack,
+      App: AppStack,
+      Auth: AuthStack,
     },
     {
       initialRouteName: 'Preload',
     },
   ),
 );
-
-class App extends Component {
-  static navigationOptions = () => ({
-    header: null,
-  });
-
-  render() {
-    return (
-      <Provider store={store}>
-        <AppContainer />
-      </Provider>
-    );
-  }
-}
-
-export default App;

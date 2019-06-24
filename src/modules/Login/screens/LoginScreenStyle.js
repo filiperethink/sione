@@ -25,7 +25,6 @@ export const styles = EStyleSheet.create({
   loadingWrapper: {
     ...EStyleSheet.absoluteFill,
     backgroundColor: '$COLORS.detailsColor',
-    opacity: 0.95,
     alignItems: 'center',
     justifyContent: 'center',
   },

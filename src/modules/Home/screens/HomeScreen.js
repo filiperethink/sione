@@ -1,17 +1,17 @@
 import React, { Component, Fragment } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
-import {
-  View, Text, Image, TouchableOpacity, Animated
-} from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
+import { View, Text, Animated } from 'react-native';
+// import AsyncStorage from '@react-native-community/async-storage';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 
 // Redux
 import { connect } from 'react-redux';
-import { getUserById } from '../../../api';
+
+// Actions
+import { getCurrentUser } from '~/store/reducers/users';
 // Components
-import { Loading, HeaderSvg } from '../../../components';
+import { Loading, Header } from '~/components';
 
 // Styles
 import { styles } from './HomeScreenStyle';
@@ -22,42 +22,21 @@ class Home extends Component {
     header: null,
   });
 
-  constructor(props, context) {
-    super(props, context);
-    this.state = {
-      isLoading: false,
-      currentUser: {},
-    };
-  }
+  state = {
+    isLoading: false,
+    currentUser: {},
+  };
 
   componentDidMount = async () => {
-    const { currentUser } = this.state;
-    const { currentUser: loggedUser, isLoading } = this.props;
-    this.setState({
-      isLoading: true,
-    });
+    const { getLoggedUser } = this.props;
+    await getLoggedUser();
+  };
 
-    const userId = await await AsyncStorage.getItem('@sione/userId');
-    const storedUser = await getUserById(userId);
-    const fetchedUser = {
-      firstName: storedUser[0].firstName,
-      lastName: storedUser[0].lastName,
-      email: storedUser[0].email,
-      id: userId,
-      avatarUrl: storedUser[0].avatarUrl,
-    };
-    if (!currentUser.id) {
-      this.setState({
-        currentUser: fetchedUser,
-        isLoading,
-      });
-    } else {
-      this.setState({
-        currentUser: loggedUser,
-        isLoading,
-      });
-    }
-    this.close();
+  componentWillReceiveProps = nextProps => {
+    this.setState({
+      currentUser: nextProps.currentUser,
+      isLoading: nextProps.isLoading,
+    });
   };
 
   _onLoad = () => {};
@@ -70,30 +49,6 @@ class Home extends Component {
         <Text style={styles.balanceValue}>7.500,00</Text>
       </View>
     </View>
-  );
-
-  renderHeader = currentUser => (
-    <Fragment>
-      <HeaderSvg />
-      <View style={styles.wrapperHeader}>
-        <View style={styles.headerInner}>
-          <Image
-            onLoadEnd={this._onLoad}
-            style={styles.userAvatar}
-            source={{ uri: currentUser.avatarUrl, cache: 'force-cache' }}
-          />
-          <View style={styles.welcomeWrapper}>
-            <Text style={styles.welcomeText}>Bem vindo,</Text>
-            <Text style={styles.userFirstName}>
-              {`${currentUser.firstName} ${currentUser.lastName}`}
-            </Text>
-          </View>
-        </View>
-        <TouchableOpacity onPress={() => null} style={styles.calendarChoose}>
-          <Text style={styles.calendarText}>MAIO</Text>
-        </TouchableOpacity>
-      </View>
-    </Fragment>
   );
 
   handleLeftSwipe = (progress, dragX) => {
@@ -193,26 +148,22 @@ class Home extends Component {
   }
 
   render() {
-    const { currentUser, isLoading } = this.state;
+    const { isLoading, currentUser } = this.state;
     const detailsSlide = [
       { text: 'Suas Rendas', value: '8.250,00', id: 'profit' },
       { text: 'Seus Débitos', value: '750,00', id: 'debit' },
       { text: 'Seus Investimentos', value: '1.280,00', id: 'invest' },
     ];
+
     return (
+      // ||
       <Fragment>
-        {isLoading || !currentUser.id ? (
-          <Loading isVisible={isLoading || !currentUser.id} />
-        ) : (
-          <Fragment>
-            <View style={styles.wrapperHome}>
-              {this.renderHeader(currentUser)}
-              {this.renderBalance()}
-              <Slide data={detailsSlide} />
-              {this.handleSwiper()}
-            </View>
-          </Fragment>
-        )}
+        <View style={styles.wrapperHome}>
+          <Header currentUser={currentUser} />
+          {/* {this.renderBalance()} */}
+          {/* <Slide data={detailsSlide} /> */}
+          {/* {this.handleSwiper()} */}
+        </View>
       </Fragment>
     );
   }
@@ -221,15 +172,23 @@ class Home extends Component {
 Home.propTypes = {
   currentUser: PropTypes.instanceOf(Object).isRequired,
   isLoading: PropTypes.bool.isRequired,
+  getLoggedUser: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
-  currentUser: state.loginState.loggedUser,
-  isLoading: state.loginState.isLoading,
-  error: state.loginState.error,
+const mapDispatchToProps = dispatch => ({
+  getLoggedUser: () => dispatch(getCurrentUser()),
 });
+
+const mapStateToProps = state => {
+  console.log({ state });
+  return {
+    currentUser: state.userState.loggedUser,
+    isLoading: state.userState.isLoading,
+    error: state.userState.error,
+  };
+};
 
 export default connect(
   mapStateToProps,
-  null,
+  mapDispatchToProps,
 )(Home);
