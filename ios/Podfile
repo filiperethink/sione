@@ -10,14 +10,18 @@ target 'sione' do
   pod 'Firebase/Auth', '~> 5.20.1'
   pod 'Firebase/Database', '~> 5.20.1'
   pod 'Firebase/Storage', '~> 5.20.1'
-  # Add these to your Podfile
-  pod 'React', :path => '../node_modules/react-native'
-  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+  pod 'RNSVG', :path => '../node_modules/react-native-svg'
   pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+  pod 'React', :path => '../node_modules/react-native', :subspecs => [
+      'RCTImage',
+    ]
+
+  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+
   target 'sione-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
-
   end
 
   target 'sioneTests' do

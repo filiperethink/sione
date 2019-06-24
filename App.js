@@ -1,41 +1,58 @@
-import React, { Component, Fragment } from "react";
-import { Provider } from "react-redux";
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import SplashScreen from 'react-native-splash-screen';
+
 import {
   createStackNavigator,
   createSwitchNavigator,
-  createAppContainer
-} from "react-navigation";
+  createAppContainer,
+} from 'react-navigation';
 
 // Modules
-import HomeScreen from "app_sione/modules/Home/screens/HomeScreen";
-import LoginScreen from "app_sione/modules/Login/screens/LoginScreen";
-import Preload from "./src/modules/Preload";
-
+import HomeScreen from '~/modules/Home/screens/HomeScreen';
+import LoginScreen from '~/modules/Login/screens/LoginScreen';
+import Preload from '~/modules/Preload';
+import Theme from '~/theme';
 // Store
-import store from "./src/store/store";
+import store from './src/store/store';
 
+// eslint-disable-next-line no-console
 console.disableYellowBox = true;
 const AppStack = createStackNavigator({
-  Home: HomeScreen
+  Home: HomeScreen,
 });
-const AuthStack = createStackNavigator({
-  SignIn: LoginScreen
-});
+const AuthStack = createStackNavigator(
+  {
+    SignIn: LoginScreen,
+  },
+  {
+    cardStyle: {
+      backgroundColor: 'tomato',
+    },
+  },
+);
 
 export const Nav = createAppContainer(
   createSwitchNavigator(
     {
-      Preload: Preload,
       App: AppStack,
-      Auth: AuthStack
+      Auth: AuthStack,
     },
     {
-      initialRouteName: "Preload"
-    }
-  )
+      initialRouteName: 'Auth',
+    },
+  ),
 );
 
+Theme.initTheme();
+
 export default class App extends Component {
+  state = {};
+
+  componentDidMount() {
+    SplashScreen.hide();
+  }
+
   render() {
     return (
       <Provider store={store}>

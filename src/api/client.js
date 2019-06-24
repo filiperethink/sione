@@ -1,3 +1,3 @@
-import firebase from "react-native-firebase";
+import firebase from 'react-native-firebase';
 
 export default firebase;

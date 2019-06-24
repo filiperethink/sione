@@ -1,154 +1,145 @@
-import EStyleSheet from "react-native-extended-stylesheet";
-import { Platform, Dimensions } from "react-native";
-const { width, height } = Dimensions.get("window");
+import EStyleSheet from 'react-native-extended-stylesheet';
+import { Platform, Dimensions } from 'react-native';
+
+const { width, height } = Dimensions.get('window');
 const majorVersionIOS = parseInt(Platform.Version, 10);
+const androidPlatform = Platform.OS === 'android';
+
 export const styles = EStyleSheet.create({
   wrapperHome: {
     flex: 1,
-    paddingVertical: Platform.OS === "android" ? 30 : 50,
-    paddingHorizontal: 30,
-    backgroundColor: "$COLORS.baseColor"
+    backgroundColor: '$COLORS.baseColor',
   },
   wrapperHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: 50
+    flexDirection: 'row',
+    width: width - 60,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    position: 'absolute',
+    top: androidPlatform ? 30 : 50,
+    left: 30,
+  },
+  headerInner: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
   userAvatar: {
-    width: Platform.OS === "android" ? 65 : 50,
-    height: Platform.OS === "android" ? 65 : 50,
-    borderRadius: Platform.OS === "android" ? 32 : 25,
-    borderWidth: 1,
-    borderColor: "$COLORS.detailsColor"
-  },
-
-  calendarChoose: {
-    backgroundColor: "$COLORS.detailsColor",
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    borderRadius: 4
-  },
-  calendarText: {
-    color: "$COLORS.baseColor",
-    fontSize: "$SIZE.small",
-    fontFamily: "$FONTS.lite"
+    width: androidPlatform ? 65 : 50,
+    height: androidPlatform ? 65 : 50,
+    borderRadius: androidPlatform ? 32 : 25,
+    borderWidth: 2,
+    marginRight: 15,
+    borderColor: '$COLORS.baseColor',
   },
   welcomeWrapper: {
-    marginBottom: 50
-  },
-  userName: {
-    color: majorVersionIOS < 11 ? "tomato" : "$COLORS.darkColor",
-    fontSize: Platform.OS === "android" ? 35 : 30,
-    fontFamily: "$FONTS.bold"
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
   },
   welcomeText: {
-    color: "$COLORS.darkColor",
-    fontSize: "$SIZE.small",
-    fontFamily: "$FONTS.lite"
+    fontSize: 12,
+    fontFamily: '$FONTS.normal',
+    color: '$COLORS.darkColor',
+  },
+  userFirstName: {
+    fontSize: '$SIZE.big',
+    fontFamily: '$FONTS.bold',
+    color: '$COLORS.baseColor',
+  },
+  calendarChoose: {
+    alignSelf: 'flex-start',
+    paddingHorizontal: 12,
+    paddingVertical: 3,
+    borderRadius: 8,
+    backgroundColor: '$COLORS.baseColor',
+  },
+  calendarText: {
+    fontSize: androidPlatform ? '$SIZE.small' : 12,
+    fontFamily: '$FONTS.bold',
+    color: '$COLORS.detailsColor',
+  },
+  balanceWrapper: {
+    marginTop: 50,
+    paddingHorizontal: 50,
+    marginBottom: 50,
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
   },
   balanceText: {
-    color: "$COLORS.darkColor",
+    color: '$COLORS.darkColor',
     fontSize: 13,
-    fontFamily: "$FONTS.normal"
+    fontFamily: '$FONTS.normal',
   },
   balanceValuesWrapper: {
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    marginBottom: 50
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
   balanceMoney: {
-    color: "$COLORS.darkColor",
+    color: '$COLORS.darkColor',
     fontSize: 12,
-    fontFamily: "$FONTS.lite",
-    marginRight: 5
+    fontFamily: '$FONTS.lite',
+    marginRight: 5,
   },
   balanceValue: {
-    color: "$COLORS.coolColor",
+    color: '$COLORS.coolColor',
     fontSize: 35,
-    fontFamily: "$FONTS.bold"
+    fontFamily: '$FONTS.bold',
   },
-  divider: {
-    height: majorVersionIOS < 12.2 ? 95 : 110,
-    marginHorizontal: Platform.OS === "ios" ? "5%" : 5
+
+  containerSwiper: {
+    height: 50,
+    borderRadius: 10,
+    marginHorizontal: 30,
   },
-  wrapperControl: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between"
+  swipeable: {
+    alignSelf: 'center',
+    width: '100%',
+    height: 50,
+    borderRadius: 10,
+    // backgroundColor: "$COLORS.detailsColor"
   },
-  wrapperIncome: {
-    width: width / 2,
+  childSwiper: {
+    width: '100%',
+    height: 50,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '$COLORS.detailsColor',
+  },
+  textSwiper: {
+    color: '$COLORS.baseColor',
+    fontSize: 15,
+    fontFamily: '$FONTS.bold',
+  },
+  leftStyles: {
+    backgroundColor: '$COLORS.coolColor',
+    justifyContent: 'center',
+    width: '100%',
+    height: 50,
+    borderRadius: 10,
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    textAlign: "center"
+    paddingLeft: 20,
   },
-
-  incomeText: {
-    color: "$COLORS.darkColor",
+  leftTextStyles: {
+    alignSelf: 'flex-start',
+    color: '$COLORS.baseColor',
     fontSize: 12,
-    fontFamily: "$FONTS.lite"
+    fontFamily: '$FONTS.bold',
   },
-  incomeWrapper: {
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center"
-  },
-  incomeMoney: {
-    color: "$COLORS.darkColor",
+  rightTextStyles: {
+    alignSelf: 'flex-end',
+    color: '$COLORS.baseColor',
     fontSize: 12,
-    fontFamily: "$FONTS.lite",
-    marginRight: 5
+    fontFamily: '$FONTS.bold',
   },
-
-  incomeValue: {
-    color: "$COLORS.detailsColor",
-    fontSize: 21,
-    marginVertical: 3,
-    fontFamily: "$FONTS.bold"
-  },
-  incomeAlert: {
-    color: "$COLORS.coolColor",
-    fontSize: 9,
-    fontFamily: "$FONTS.lite"
-  },
-
-  wrapperDebit: {
-    width: width / 2,
+  rightStyles: {
+    backgroundColor: '$COLORS.dangerColor',
+    justifyContent: 'center',
+    width: '100%',
+    height: 50,
+    borderRadius: 10,
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    textAlign: "center"
+    paddingRight: 20,
   },
-  debitText: {
-    color: "$COLORS.darkColor",
-    fontSize: 12,
-    fontFamily: "$FONTS.lite"
-  },
-  debitWrapper: {
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center"
-  },
-  debitMoney: {
-    color: "$COLORS.darkColor",
-    fontSize: 12,
-    fontFamily: "$FONTS.lite",
-    marginRight: 5
-  },
-
-  debitValue: {
-    color: "$COLORS.dangerColor",
-    fontSize: 21,
-    marginVertical: 3,
-    fontFamily: "$FONTS.bold"
-  },
-
-  debitAlert: {
-    color: "$COLORS.lightTextColor",
-    fontSize: 9,
-    fontFamily: "$FONTS.lite"
-  }
 });

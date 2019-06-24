@@ -1,7 +1,8 @@
 const images = {
   illustrations: {
     login: require("./draws/draw-login.png"),
-    signup: require("./draws/draw-signup.png")
+    signup: require("./draws/draw-signup.png"),
+    bar: require("./draws/Vector.png")
   },
   icons: {
     icnHome: require("./icons/home.png"),

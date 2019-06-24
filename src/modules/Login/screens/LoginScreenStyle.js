@@ -1,37 +1,37 @@
-import EStyleSheet from "react-native-extended-stylesheet";
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 export const styles = EStyleSheet.create({
   wrapperLogin: {
     flexGrow: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "$COLORS.baseColor"
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '$COLORS.baseColor',
   },
   loginTitle: {
     fontSize: 30,
-    fontFamily: "$FONTS.bold",
-    color: "$COLORS.detailsColor"
+    fontFamily: '$FONTS.bold',
+    color: '$COLORS.detailsColor',
   },
   loginHeadline: {
     fontSize: 13,
-    fontFamily: "$FONTS.normal",
-    color: "$COLORS.lightTextColor"
+    fontFamily: '$FONTS.normal',
+    color: '$COLORS.lightTextColor',
   },
   loginDraw: {
     height: 150,
     width: 200,
-    marginVertical: 20
+    marginVertical: 20,
   },
   loadingWrapper: {
     ...EStyleSheet.absoluteFill,
-    backgroundColor: "$COLORS.detailsColor",
+    backgroundColor: '$COLORS.detailsColor',
     opacity: 0.95,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   loadingText: {
     fontSize: 25,
-    fontFamily: "$FONTS.bold",
-    color: "$COLORS.baseColor"
-  }
+    fontFamily: '$FONTS.bold',
+    color: '$COLORS.baseColor',
+  },
 });

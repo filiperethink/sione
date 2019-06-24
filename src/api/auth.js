@@ -1,4 +1,4 @@
-import firebase from "./client";
+import firebase from './client';
 
 const loginApi = async (email, pass) => {
   const res = await firebase.auth().signInWithEmailAndPassword(email, pass);

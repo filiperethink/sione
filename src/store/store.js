@@ -2,9 +2,8 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
-
 import { composeWithDevTools } from 'redux-devtools-extension';
-
+import Reactotron from '../config/reactotron';
 import reducers from './reducers';
 
 const middlewares = [];
@@ -18,13 +17,11 @@ let store = null;
 if (env === 'development') {
   middlewares.push(createLogger({ collapsed: true }));
   store = createStore(
-    reducers, composeWithDevTools(applyMiddleware(...middlewares))
+    reducers,
+    composeWithDevTools(applyMiddleware(...middlewares)),
   );
 } else {
-  store = createStore(
-    reducers, applyMiddleware(...middlewares)
-  );
+  store = Reactotron.createStore(reducers, applyMiddleware(...middlewares));
 }
-
 
 export default store;

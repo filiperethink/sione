@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { SafeAreaView, Text } from "react-native";
+import { SafeAreaView, Text, Modal } from "react-native";
 
 // Styles
 import { styles } from "./LoadingStyle";

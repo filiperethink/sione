@@ -42,6 +42,7 @@
 		8C13790322AC22A400D27870 /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C1377F822AC1CE700D27870 /* libRNFirebase.a */; };
 		8C13790522AC247400D27870 /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CD5BF4122ABF61A00CB09D2 /* libSplashScreen.a */; };
 		8C13790622AC27E300D27870 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CD5BF3C22ABF61A00CB09D2 /* libRNGestureHandler.a */; };
+		8CA9466822B92DB600BEB2C1 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CA9466722B92DB600BEB2C1 /* libRNSVG.a */; };
 		981D756EA95145439BB78A69 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC45913736B8469D940D5075 /* Quicksand-Bold.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		C1D2357731FEAF072EE2FE96 /* libPods-sioneTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A493E4E7A08105B2F061B0E /* libPods-sioneTests.a */; };
@@ -299,6 +300,20 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNFirebase;
 		};
+		8CA946A822B92E5F00BEB2C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8CA946A322B92E5F00BEB2C1 /* RNSVG.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0CF68AC11AF0540F00FF9E5C;
+			remoteInfo = RNSVG;
+		};
+		8CA946AA22B92E5F00BEB2C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8CA946A322B92E5F00BEB2C1 /* RNSVG.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 94DDAC5C1F3D024300EED511;
+			remoteInfo = "RNSVG-tvOS";
+		};
 		8CD5BF2D22ABF61900CB09D2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
@@ -393,6 +408,12 @@
 		8C1377F922AC1D0700D27870 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../assets/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8C1378FF22AC22A400D27870 /* libFirebaseCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFirebaseCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C13790122AC22A400D27870 /* libFirebaseInstanceID.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFirebaseInstanceID.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CA944FB22B91A2D00BEB2C1 /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNSVG.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CA9457A22B920FE00BEB2C1 /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNSVG.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CA9457E22B9236200BEB2C1 /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNSVG.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CA945BD22B924A800BEB2C1 /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNSVG.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CA9466722B92DB600BEB2C1 /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNSVG.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CA946A322B92E5F00BEB2C1 /* RNSVG.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNSVG.xcodeproj; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; };
 		92F3276309896FFE44A55EF8 /* Pods-sione.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sione.release.xcconfig"; path = "Target Support Files/Pods-sione/Pods-sione.release.xcconfig"; sourceTree = "<group>"; };
 		9918069B3522945C19450A90 /* Pods-sioneTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sioneTests.debug.xcconfig"; path = "Target Support Files/Pods-sioneTests/Pods-sioneTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AAA202D408F45615CF373682 /* Pods-sione-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sione-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-sione-tvOSTests/Pods-sione-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -424,6 +445,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CA9466822B92DB600BEB2C1 /* libRNSVG.a in Frameworks */,
 				8C13790622AC27E300D27870 /* libRNGestureHandler.a in Frameworks */,
 				8C13790522AC247400D27870 /* libSplashScreen.a in Frameworks */,
 				8C13790322AC22A400D27870 /* libRNFirebase.a in Frameworks */,
@@ -593,6 +615,11 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8CA9466722B92DB600BEB2C1 /* libRNSVG.a */,
+				8CA945BD22B924A800BEB2C1 /* libRNSVG.a */,
+				8CA9457E22B9236200BEB2C1 /* libRNSVG.a */,
+				8CA9457A22B920FE00BEB2C1 /* libRNSVG.a */,
+				8CA944FB22B91A2D00BEB2C1 /* libRNSVG.a */,
 				8C1378FF22AC22A400D27870 /* libFirebaseCore.a */,
 				8C13790122AC22A400D27870 /* libFirebaseInstanceID.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
@@ -638,6 +665,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				8CA946A322B92E5F00BEB2C1 /* RNSVG.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -697,6 +725,15 @@
 			isa = PBXGroup;
 			children = (
 				8C1377F822AC1CE700D27870 /* libRNFirebase.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8CA946A422B92E5F00BEB2C1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8CA946A922B92E5F00BEB2C1 /* libRNSVG.a */,
+				8CA946AB22B92E5F00BEB2C1 /* libRNSVG-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -912,6 +949,10 @@
 				{
 					ProductGroup = 8CD5BF3522ABF61900CB09D2 /* Products */;
 					ProjectRef = 1AB0F863BE7E49E2A01025EE /* RNGestureHandler.xcodeproj */;
+				},
+				{
+					ProductGroup = 8CA946A422B92E5F00BEB2C1 /* Products */;
+					ProjectRef = 8CA946A322B92E5F00BEB2C1 /* RNSVG.xcodeproj */;
 				},
 				{
 					ProductGroup = 8CD5BF3722ABF61900CB09D2 /* Products */;
@@ -1160,6 +1201,20 @@
 			remoteRef = 8C1377F722AC1CE700D27870 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		8CA946A922B92E5F00BEB2C1 /* libRNSVG.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNSVG.a;
+			remoteRef = 8CA946A822B92E5F00BEB2C1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8CA946AB22B92E5F00BEB2C1 /* libRNSVG-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRNSVG-tvOS.a";
+			remoteRef = 8CA946AA22B92E5F00BEB2C1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		8CD5BF2E22ABF61900CB09D2 /* libjsi.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1270,7 +1325,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;

@@ -3,6 +3,7 @@ package com.sione;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.horcrux.svg.SvgPackage;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.auth.RNFirebaseAuthPackage; // <-- Add this line
@@ -28,7 +29,8 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(new MainReactPackage(), new AsyncStoragePackage(), new RNFirebasePackage(),
+      return Arrays.<ReactPackage>asList(new MainReactPackage(),
+            new SvgPackage(), new AsyncStoragePackage(), new RNFirebasePackage(),
           new RNFirebaseAuthPackage(), new RNFirebaseDatabasePackage(), new RNFirebaseStoragePackage(),
           new SplashScreenReactPackage(), new RNGestureHandlerPackage());
     }
